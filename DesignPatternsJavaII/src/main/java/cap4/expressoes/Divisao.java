@@ -1,4 +1,6 @@
-package cap4;
+package cap4.expressoes;
+
+import cap4.Visitor;
 
 public class Divisao implements Expressao {
     private Expressao esquerda;
@@ -12,5 +14,18 @@ public class Divisao implements Expressao {
     @Override
     public int avalia() {
         return this.esquerda.avalia() / this.direita.avalia();
+    }
+
+    @Override
+    public void aceita(Visitor visitor) {
+        visitor.aceitaDivisao(this);
+    }
+
+    public Expressao getEsquerda() {
+        return this.esquerda;
+    }
+
+    public Expressao getDireita() {
+        return this.direita;
     }
 }

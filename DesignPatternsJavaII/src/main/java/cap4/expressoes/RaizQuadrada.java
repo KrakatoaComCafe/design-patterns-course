@@ -1,4 +1,6 @@
-package cap4;
+package cap4.expressoes;
+
+import cap4.Visitor;
 
 public class RaizQuadrada implements Expressao {
     private Expressao numero;
@@ -10,5 +12,10 @@ public class RaizQuadrada implements Expressao {
     @Override
     public int avalia() {
         return (int) Math.sqrt(numero.avalia());
+    }
+
+    @Override
+    public void aceita(Visitor visitor) {
+        visitor.aceitaRaizQuadrada(this);
     }
 }
